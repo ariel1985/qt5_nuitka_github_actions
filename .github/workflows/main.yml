@@ -1,0 +1,38 @@
+name: Build with Nuitka
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install nuitka
+
+    - name: Make build script executable
+      run: chmod +x build_nuitka.sh  
+
+    - name: Build with Nuitka
+      run: ./build_nuitka.sh
+
+    - name: Upload Nuitka build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: main.dist
+        path: main.dist/
