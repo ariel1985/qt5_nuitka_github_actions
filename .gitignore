@@ -1,0 +1,27 @@
+# virtual environment
+venv/
+
+# Python cache
+__pycache__/
+
+# python bytecode
+*.pyc
+
+# vscode settings
+.vscode/
+
+# nuitka cache
+.nuitka/
+# nuitka output
+*.dist/
+# nuitka compiled files
+*.so
+# nuitka compiled files with debug symbols
+*.pyd
+# nuitka compiled files with debug symbols
+*.pyo
+# nuitka build files
+*.build/
+
+
+
