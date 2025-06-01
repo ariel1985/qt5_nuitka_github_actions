@@ -1,6 +1,6 @@
 # filepath: /qt5_nuitka_github_actions/qt5_nuitka_github_actions/src/main.py
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox, QLabel
 
 class HelloWorldApp(QWidget):
     def __init__(self):
@@ -10,6 +10,10 @@ class HelloWorldApp(QWidget):
     def initUI(self):
         self.setWindowTitle('Hello World App')
         self.setGeometry(100, 100, 300, 200)
+        # Write a text label
+        self.setStyleSheet("background-color: purple;")
+        self.label = QLabel('Hello, World!', self)
+        self.label.setGeometry(100, 50, 100, 30)
 
         self.button = QPushButton('Click me!', self)
         self.button.setGeometry(100, 80, 100, 30)
